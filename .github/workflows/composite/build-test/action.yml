@@ -5,9 +5,6 @@ inputs:
   service:
     description: "Service to build"
     required: true
-    # registry_endpoint:
-  #   description: "Image registry repo e.g. myacr.azureacr.io/eshop"
-  #   required: true
   dotnet_version:
     description: "Version of dotnet to use for testing"
     required: true
@@ -21,27 +18,35 @@ inputs:
 runs:
   using: "composite"
   steps:
-  - name: Setup dotnet
-    uses: actions/setup-dotnet@v1
-    with:
-      dotnet-version: ${{ inputs.dotnet_version }}
+    - name: Install Docker Compose
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker-compose
+        echo "Docker Compose installed"
+        docker --version
+        docker-compose --version
 
-  - name: Build and run unit tests
-    shell: bash
-    run: |
-      cd src
-      dotnet restore "eShopOnContainers-ServicesAndWebApps.sln"
-      cd ${{ inputs.project_path }}
-      dotnet build --no-restore
-      cd -
-      cd ${{ inputs.tests_path }}
-      dotnet build --no-restore
-      dotnet test --no-build -v=normal
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ inputs.dotnet_version }}
 
-  - name: Compose build ${{ inputs.service }}
-    shell: bash
-    run: sudo -E docker-compose build ${{ inputs.service }}
-    working-directory: ./src
-    env:
-      TAG: ${{ env.BRANCH }}
-      # REGISTRY: ${{ inputs.registry_endpoint }}
+    - name: Build and run unit tests
+      shell: bash
+      run: |
+        cd src
+        dotnet restore "eShopOnContainers-ServicesAndWebApps.sln"
+        cd ${{ inputs.project_path }}
+        dotnet build --no-restore
+        cd -
+        cd ${{ inputs.tests_path }}
+        dotnet build --no-restore
+        dotnet test --no-build -v=normal
+
+    - name: Compose build ${{ inputs.service }}
+      shell: bash
+      run: sudo -E docker-compose build ${{ inputs.service }}
+      working-directory: ./src
+      env:
+        TAG: ${{ env.BRANCH }}

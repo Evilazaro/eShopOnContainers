@@ -12,20 +12,30 @@ inputs:
 runs:
   using: "composite"
   steps:
-  - name: Update Packages
+  # Install Docker Compose
+  - name: Install Docker Compose
     shell: bash
-    run: | 
-      sudo apt-get update && \
-      sudo curl -L -o nerdctl.tar.gz "https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-full-2.0.3-linux-arm64.tar.gz" && \
-      file nerdctl.tar.gz && \
-      tar -xzf nerdctl.tar.gz -C /usr/local/bin && \
-      # sudo chmod +x /usr/local/bin/nerdctl && \
-      ls -l /usr/local/bin/
-      # nerdctl --version
-  # - name: Compose build ${{ inputs.service }}
-  #   shell: bash
-  #   run: sudo -E nerdctl compose build ${{ inputs.service }}
-  #   working-directory: ./src
-  #   env:
-  #     TAG: ${{ env.BRANCH }}
-  #     # REGISTRY: ${{ inputs.registry_endpoint }}
+    run: |
+      sudo apt-get update
+      sudo apt-get install -y docker-compose
+      echo "Docker Composed installed"
+      docker --version
+      docker-compose --version
+  
+  # Builds the docker image for the service specified
+  - name: Compose build ${{ inputs.service }}
+    shell: bash
+    run: |
+      echo "Building ${{ inputs.service }} image"
+      sudo docker-compose build ${{ inputs.service }}
+      echo "Built ${{ inputs.service }} image"
+    working-directory: ./src
+    env:
+      TAG: ${{ env.BRANCH }}
+      # REGISTRY: ${{ inputs.registry_endpoint }}
+
+  # List the images
+  - name: List images
+    shell: bash
+    run: |
+      sudo docker images
