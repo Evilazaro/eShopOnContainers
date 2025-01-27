@@ -12,11 +12,26 @@ inputs:
 runs:
   using: "composite"
   steps:
-  - name: Update Packages
-    shell: bash
-    run: | 
-      sudo apt-get update && \
-      sudo apt-get install -y nerdctl && \
+  # Install prerequisites
+  - name: Install containerd
+    run: |
+      sudo apt-get update
+      sudo apt-get install -y containerd
+      sudo systemctl start containerd
+      sudo systemctl enable containerd
+      sudo systemctl status containerd
+
+  # Download nerdctl
+  - name: Download nerdctl
+    run: |
+      VERSION=$(curl -s https://api.github.com/repos/containerd/nerdctl/releases/latest | grep tag_name | cut -d '"' -f 4)
+      wget https://github.com/containerd/nerdctl/releases/download/${VERSION}/nerdctl-${VERSION}-linux-amd64.tar.gz
+      tar -xvf nerdctl-${VERSION}-linux-amd64.tar.gz
+      sudo mv nerdctl /usr/local/bin/
+
+  # Verify nerdctl installation
+  - name: Verify nerdctl
+    run: |
       nerdctl --version
   # - name: Compose build ${{ inputs.service }}
   #   shell: bash
