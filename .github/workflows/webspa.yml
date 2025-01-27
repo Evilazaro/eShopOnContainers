@@ -4,16 +4,29 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - dev
+      - 'feature/**' # Branches containing feature/ in the name
+      - 'bugfix/**' # Branches containing bugfix/ in the name
+      - 'hotfix/**' # Branches containing hotfix/ in the name
+      - 'release/**' # Branches containing release/ in the name
+      - 'refactor/**' # Branches containing refactor/ in the name
+      - 'test/**' # Branches containing test/ in the name
+      - 'techdebt/**' # Branches containing techdebt/ in the name
+      - main
 
     paths:
     - src/BuildingBlocks/**
     - src/Web/WebSPA/**
     - .github/workflows/webspa.yml
   
-  pull_request:
+  pull_request: # Trigger the workflow on pull requests
     branches:
-    - dev
+      - 'feature/**' # Branches containing feature/ in the name
+      - 'bugfix/**' # Branches containing bugfix/ in the name
+      - 'hotfix/**' # Branches containing hotfix/ in the name
+      - 'release/**' # Branches containing release/ in the name
+      - 'refactor/**' # Branches containing refactor/ in the name
+      - 'test/**' # Branches containing test/ in the name
+      - 'techdebt/**' # Branches containing techdebt/ in the name
     
     paths:
     - src/BuildingBlocks/**
