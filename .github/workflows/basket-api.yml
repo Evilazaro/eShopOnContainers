@@ -1,30 +1,31 @@
 name: basket-api
 
 on:
-   push:
+  push:
     branches:
-        - main
-        - 'feature/**' # Branches containing feature/ in the name
-        - 'bugfix/**' # Branches containing bugfix/ in the name
-        - 'hotfix/**' # Branches containing hotfix/ in the name
-        - 'release/**' # Branches containing release/ in the name
-        - 'refactor/**' # Branches containing refactor/ in the name
-        - 'test/**' # Branches containing test/ in the name
-        - 'techdebt/**' # Branches containing techdebt/ in the name
+      - main
+      - 'feature/**' # Branches containing feature/ in the name
+      - 'bugfix/**' # Branches containing bugfix/ in the name
+      - 'hotfix/**' # Branches containing hotfix/ in the name
+      - 'release/**' # Branches containing release/ in the name
+      - 'refactor/**' # Branches containing refactor/ in the name
+      - 'test/**' # Branches containing test/ in the name
+      - 'techdebt/**' # Branches containing techdebt/ in the name
 
     paths:
-    - src/BuildingBlocks/**
-    - src/Services/Basket/**
-    - .github/workflows/basket-api.yml
+      - src/BuildingBlocks/**
+      - src/Services/Basket/**
+      - .github/workflows/basket-api.yml
   
   pull_request: # Trigger the workflow on pull requests
     branches:
       - main
-
+  
     paths:
-    - src/BuildingBlocks/**
-    - src/Services/Basket/**
-    - .github/workflows/basket-api.yml
+      - src/BuildingBlocks/**
+      - src/Services/Basket/**
+      - .github/workflows/basket-api.yml
+
 env:
   SERVICE: basket-api
   IMAGE: basket.api
