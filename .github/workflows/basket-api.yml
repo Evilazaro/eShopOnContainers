@@ -1,4 +1,4 @@
-name: basket-api
+name: basket-api CI
 
 on:
   workflow_dispatch:
