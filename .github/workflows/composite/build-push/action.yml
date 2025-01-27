@@ -8,9 +8,9 @@ inputs:
   registry_host:
     description: "Image registry host e.g. myacr.azureacr.io"
     required: true
-  registry_endpoint:
-    description: "Image registry repo e.g. myacr.azureacr.io/eshop"
-    required: true
+    # registry_endpoint:
+  #   description: "Image registry repo e.g. myacr.azureacr.io/eshop"
+  #   required: true
   image_name:
     description: "Name of image"
     required: true
@@ -54,7 +54,7 @@ runs:
     working-directory: ./src
     env:
       TAG: ${{ env.BRANCH }}
-      REGISTRY: ${{ inputs.registry_endpoint }}
+      # REGISTRY: ${{ inputs.registry_endpoint }}
 
   - name: Compose push ${{ inputs.service }}
     shell: bash
@@ -62,7 +62,7 @@ runs:
     working-directory: ./src
     env:
       TAG: ${{ env.BRANCH }}
-      REGISTRY: ${{ inputs.registry_endpoint }}
+      # REGISTRY: ${{ inputs.registry_endpoint }}
 
   - name: Create multiarch manifest
     shell: bash
