@@ -27,5 +27,6 @@ jobs:
     # Build eShop Solution
     - name: Build eShop Solution
       shell: bash
+      working-directory: ./src
       run: |
         sudo docker-compose build
