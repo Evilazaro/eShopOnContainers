@@ -1,0 +1,31 @@
+name: eShop CI Checks
+
+on:
+  workflow_dispatch:  
+  pull_request: # Trigger the workflow on pull requests
+    branches:
+      - main
+
+jobs:
+
+  ci-eshop-checks:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    # Install Docker Compose
+    - name: Install Docker Compose
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker-compose
+        echo "Docker Composed installed"
+        docker --version
+        docker-compose --version
+
+    # Build eShop Solution
+    - name: Build eShop Solution
+      shell: bash
+      run: |
+        sudo docker-compose build
