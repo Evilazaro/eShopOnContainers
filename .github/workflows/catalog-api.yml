@@ -34,7 +34,7 @@ env:
 
 jobs:
 
-  BuildContainersForPR_Linux:
+  catalog-api-ci:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:

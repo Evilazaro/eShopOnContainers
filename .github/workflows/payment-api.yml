@@ -29,7 +29,7 @@ env:
   IMAGE: payment.api
 
 jobs:
-  BuildContainersForPR_Linux:
+  payment-api-ci:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:

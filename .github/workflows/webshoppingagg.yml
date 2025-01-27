@@ -27,7 +27,7 @@ env:
   IMAGE: webshoppingagg
 
 jobs:
-  BuildContainersForPR_Linux:
+  webshoppingagg-ci:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:

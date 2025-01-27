@@ -29,7 +29,7 @@ env:
   IMAGE: webspa
 
 jobs:
-  BuildContainersForPR_Linux:
+  webspa-ci:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:

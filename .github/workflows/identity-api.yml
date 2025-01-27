@@ -29,7 +29,7 @@ env:
   IMAGE: identity.api
 
 jobs:
-  BuildContainersForPR_Linux:
+  identity-api-ci:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     steps:

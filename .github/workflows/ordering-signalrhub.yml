@@ -29,7 +29,7 @@ env:
   IMAGE: ordering.signalrhub
 
 jobs:
-  BuildContainersForPR_Linux:
+  ordering-signalrhub-ci:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:

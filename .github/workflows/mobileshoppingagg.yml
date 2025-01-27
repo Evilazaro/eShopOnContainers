@@ -27,7 +27,7 @@ env:
   IMAGE: mobileshoppingagg
 
 jobs:
-  BuildContainersForPR_Linux:
+  mobileshoppingagg-ci:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:
