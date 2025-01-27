@@ -51,6 +51,7 @@ runs:
   - name: Verify buildctl
     shell: bash
     run: |
+      sudo buildkitd
       buildctl --version
   
   # Builds the docker image for the service specified
