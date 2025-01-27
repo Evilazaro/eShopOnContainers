@@ -22,13 +22,14 @@ runs:
       echo "Verifies docker is installed"
       docker --version
   
-  # # Builds the docker image for the service specified
-  # - name: Compose build ${{ inputs.service }}
-  #   shell: bash
-  #   run: |
-  #     docker --version
-  #     # sudo -E nerdctl build ${{ inputs.service }}
-  #   working-directory: ./src
-  #   env:
-  #     TAG: ${{ env.BRANCH }}
-  #     # REGISTRY: ${{ inputs.registry_endpoint }}
+  # Builds the docker image for the service specified
+  - name: Compose build ${{ inputs.service }}
+    shell: bash
+    run: |
+      echo "Building ${{ inputs.service }} image"
+      sudo docker-compose build ${{ inputs.service }}
+      echo "Built ${{ inputs.service }} image"
+    working-directory: ./src
+    env:
+      TAG: ${{ env.BRANCH }}
+      # REGISTRY: ${{ inputs.registry_endpoint }}
