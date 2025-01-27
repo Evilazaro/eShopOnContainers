@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'feature/**' # Branches containing feature/ in the name
-      - 'bugfix/**' # Branches containing bugfix/ in the name
-      - 'hotfix/**' # Branches containing hotfix/ in the name
-      - 'release/**' # Branches containing release/ in the name
-      - 'refactor/**' # Branches containing refactor/ in the name
-      - 'test/**' # Branches containing test/ in the name
-      - 'techdebt/**' # Branches containing techdebt/ in the name
+      - 'feature/webhooks-api/**' # Branches containing feature/ in the name
+      - 'bugfix/webhooks-api/**' # Branches containing bugfix/ in the name
+      - 'hotfix/webhooks-api/**' # Branches containing hotfix/ in the name
+      - 'release/webhooks-api/**' # Branches containing release/ in the name
+      - 'refactor/webhooks-api/**' # Branches containing refactor/ in the name
+      - 'test/webhooks-api/**' # Branches containing test/ in the name
+      - 'techdebt/webhooks-api/**' # Branches containing techdebt/ in the name
     paths:
       - src/BuildingBlocks/**
       - src/Services/Webhooks/**
@@ -29,7 +29,7 @@ env:
   IMAGE: webhooks.api
 
 jobs:
-  BuildContainersForPR_Linux:
+  webhooks-api-ci:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:

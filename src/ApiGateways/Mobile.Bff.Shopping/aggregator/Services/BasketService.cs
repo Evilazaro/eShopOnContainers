@@ -1,4 +1,6 @@
-﻿namespace Microsoft.eShopOnContainers.Mobile.Shopping.HttpAggregator.Services;
+﻿using GrpcBasket;
+
+namespace Microsoft.eShopOnContainers.Mobile.Shopping.HttpAggregator.Services;
 
 public class BasketService : IBasketService
 {

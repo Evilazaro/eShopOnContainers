@@ -32,7 +32,7 @@ env:
 
 jobs:
 
-  ci-basket-api:
+  basket-api-ci:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:

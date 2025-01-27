@@ -1,4 +1,6 @@
-﻿namespace Microsoft.eShopOnContainers.Mobile.Shopping.HttpAggregator.Services;
+﻿using CatalogApi;
+
+namespace Microsoft.eShopOnContainers.Mobile.Shopping.HttpAggregator.Services;
 
 public class CatalogService : ICatalogService
 {
