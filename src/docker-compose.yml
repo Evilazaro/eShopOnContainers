@@ -6,16 +6,16 @@ services:
     image: datalust/seq:latest
 
   sqldata:
-    image: mcr.microsoft.com/mssql/server:2019-latest 
+    image: mcr.microsoft.com/mssql/server:2022-latest 
 
   nosqldata:
-    image: mongo
+    image: mongo:latest
 
   basketdata:
-    image: redis:alpine
+    image: redis:latest
 
   rabbitmq:
-    image: rabbitmq:3-management-alpine
+    image: rabbitmq:4-management
 
   identity-api:
     image: ${REGISTRY:-eshop}/identity.api:${PLATFORM:-linux}-${TAG:-latest}

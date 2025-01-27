@@ -2,16 +2,16 @@ version: '3.4'
 
 services:
   sql-data-test:
-    image: mcr.microsoft.com/mssql/server:2019-latest 
+    image: mcr.microsoft.com/mssql/server:2022-latest 
 
   nosql-data-test:
     image: mongo
 
   basket-data-test:
-    image: redis:alpine
+    image: redis:latest
 
   rabbitmq-test:
-    image: rabbitmq:3-management-alpine
+    image: rabbitmq:4-management
 
   identity-api-test:
     image: ${REGISTRY:-eshop}/identity-api-test:${TAG:-latest}
