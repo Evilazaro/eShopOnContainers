@@ -19,7 +19,7 @@ runs:
       sudo apt-get upgrade -y 
   - name: Compose build ${{ inputs.service }}
     shell: bash
-    run: sudo -E docker-compose build ${{ inputs.service }}
+    run: sudo -E nerdctl compose build ${{ inputs.service }}
     working-directory: ./src
     env:
       TAG: ${{ env.BRANCH }}
