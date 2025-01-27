@@ -42,8 +42,6 @@ jobs:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:
-    - name: Update Packages
-      run: sudo apt-get update
     - name: Checkout code
       uses: actions/checkout@v4
     - uses: ./.github/workflows/composite/build
