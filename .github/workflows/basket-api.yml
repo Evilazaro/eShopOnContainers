@@ -32,7 +32,7 @@ env:
 
 jobs:
 
-  BuildContainersForPR_Linux:
+  ci-basket-api:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:
