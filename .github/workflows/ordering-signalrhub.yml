@@ -1,52 +1,56 @@
-name: ordering-signalrhub
+name: ordering-signalrhub CI
 
 on:
   workflow_dispatch:
   push:
     branches:
-    - dev
-
+      - 'feature/**' # Branches containing feature/ in the name
+      - 'bugfix/**' # Branches containing bugfix/ in the name
+      - 'hotfix/**' # Branches containing hotfix/ in the name
+      - 'release/**' # Branches containing release/ in the name
+      - 'refactor/**' # Branches containing refactor/ in the name
+      - 'test/**' # Branches containing test/ in the name
+      - 'techdebt/**' # Branches containing techdebt/ in the name
     paths:
-    - src/BuildingBlocks/**
-    - src/Services/Ordering/**
-    - .github/workflows/ordering-signalrhub.yml
-  
-  pull_request:
+      - src/BuildingBlocks/**
+      - src/Services/Ordering/**
+      - .github/workflows/ordering-signalrhub.yml
+
+  pull_request: # Trigger the workflow on pull requests
     branches:
-    - dev
-
+      - main
     paths:
-    - src/BuildingBlocks/**
-    - src/Services/Ordering/**
-    - .github/workflows/ordering-signalrhub.yml
+      - src/BuildingBlocks/**
+      - src/Services/Ordering/**
+      - .github/workflows/ordering-signalrhub.yml
+
 env:
   SERVICE: ordering-signalrhub
   IMAGE: ordering.signalrhub
 
 jobs:
-
   BuildContainersForPR_Linux:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
+    # if: ${{ github.event_name == 'pull_request' }}
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - uses: ./.github/workflows/composite/build
-      with:
-        service: ${{ env.SERVICE }}
-        registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ./.github/workflows/composite/build
+        with:
+          service: ${{ env.SERVICE }}
+          # registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
 
-  BuildLinux:
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'pull_request' }}
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - uses: ./.github/workflows/composite/build-push
-      with:
-        service: ${{ env.SERVICE }}
-        registry_host: ${{ secrets.REGISTRY_HOST }}
-        registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
-        image_name: ${{ env.IMAGE }}
-        registry_username: ${{ secrets.USERNAME }}
-        registry_password: ${{ secrets.PASSWORD }}
+  # BuildLinux:
+  #   runs-on: ubuntu-latest
+  #   if: ${{ github.event_name != 'pull_request' }}
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #     - uses: ./.github/workflows/composite/build-push
+  #       with:
+  #         service: ${{ env.SERVICE }}
+  #         registry_host: ${{ secrets.REGISTRY_HOST }}
+  #         # registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
+  #         image_name: ${{ env.IMAGE }}
+  #         registry_username: ${{ secrets.USERNAME }}
+  #         registry_password: ${{ secrets.PASSWORD }}
