@@ -27,8 +27,8 @@ runs:
   - name: Download and install nerdctl
     shell: bash 
     run: |
-      wget https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-2.0.3-linux-arm64.tar.gz
-      tar -xvf nerdctl-2.0.3-linux-arm64.tar.gz
+      wget https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-2.0.3-linux-amd64.tar.gz
+      tar -xvf nerdctl-2.0.3-linux-amd64.tar.gz
       ls
       sudo mv nerdctl /usr/local/bin/
 
