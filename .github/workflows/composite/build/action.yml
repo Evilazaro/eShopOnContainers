@@ -17,48 +17,89 @@ runs:
     shell: bash
     run: |
       sudo apt-get update
-      sudo apt-get install -y wget apt-transport-https ca-certificates curl software-properties-common
-      sudo apt-get install -y containerd
-      sudo systemctl start containerd
-      sudo systemctl enable containerd
-      sudo systemctl status containerd
+      sudo apt-get upgrade -y
 
-  # Download and install nerdctl
-  - name: Download and install nerdctl
-    shell: bash 
-    run: |
-      wget https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-2.0.3-linux-amd64.tar.gz
-      tar -xvf nerdctl-2.0.3-linux-amd64.tar.gz
-      ls
-      sudo mv nerdctl /usr/local/bin/
-
-  # Verify nerdctl installation
-  - name: Verify nerdctl
-    shell: bash
-    run: |
-      nerdctl --version
-
-  # Download and install nerdctl
-  - name: Download and install BuildKit
-    shell: bash 
-    run: |
-      wget https://github.com/moby/buildkit/releases/download/v0.19.0/buildkit-v0.19.0.linux-amd64.tar.gz
-      tar -xvf buildkit-v0.19.0.linux-amd64.tar.gz
-      ls
-      sudo mv bin/* /usr/local/bin/
-  
-  # Verify nerdctl installation
-  - name: Verify buildctl
-    shell: bash
-    run: |
-      sudo buildkitd
-      buildctl --version
   
   # Builds the docker image for the service specified
   - name: Compose build ${{ inputs.service }}
     shell: bash
-    run: sudo -E nerdctl build ${{ inputs.service }}
+    run: |
+      docker --version
+      # sudo -E nerdctl build ${{ inputs.service }}
     working-directory: ./src
     env:
       TAG: ${{ env.BRANCH }}
       # REGISTRY: ${{ inputs.registry_endpoint }}
+
+
+
+
+
+
+
+
+
+# name: "Build for PRe"
+# description: "Builds a docker image without pushing"
+
+# inputs:
+#   service:
+#     description: "Service to build"
+#     required: true
+#   # registry_endpoint:
+#   #   description: "Image registry repo e.g. myacr.azureacr.io/eshop"
+#   #   required: true
+
+# runs:
+#   using: "composite"
+#   steps:
+#   # Install prerequisites
+#   - name: Install containerd
+#     shell: bash
+#     run: |
+#       sudo apt-get update
+#       sudo apt-get install -y wget apt-transport-https ca-certificates curl software-properties-common
+#       sudo apt-get install -y containerd
+#       sudo systemctl start containerd
+#       sudo systemctl enable containerd
+#       sudo systemctl status containerd
+
+#   # Download and install nerdctl
+#   - name: Download and install nerdctl
+#     shell: bash 
+#     run: |
+#       wget https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-2.0.3-linux-amd64.tar.gz
+#       tar -xvf nerdctl-2.0.3-linux-amd64.tar.gz
+#       ls
+#       sudo mv nerdctl /usr/local/bin/
+
+#   # Verify nerdctl installation
+#   - name: Verify nerdctl
+#     shell: bash
+#     run: |
+#       nerdctl --version
+
+#   # Download and install nerdctl
+#   - name: Download and install BuildKit
+#     shell: bash 
+#     run: |
+#       wget https://github.com/moby/buildkit/releases/download/v0.19.0/buildkit-v0.19.0.linux-amd64.tar.gz
+#       tar -xvf buildkit-v0.19.0.linux-amd64.tar.gz
+#       ls
+#       sudo mv bin/* /usr/local/bin/
+  
+#   # Verify nerdctl installation
+#   - name: Verify buildctl
+#     shell: bash
+#     run: |
+#       sudo buildkitd
+#       buildctl --version
+  
+#   # Builds the docker image for the service specified
+#   - name: Compose build ${{ inputs.service }}
+#     shell: bash
+#     run: sudo -E nerdctl build ${{ inputs.service }}
+#     working-directory: ./src
+#     env:
+#       TAG: ${{ env.BRANCH }}
+#       # REGISTRY: ${{ inputs.registry_endpoint }}
