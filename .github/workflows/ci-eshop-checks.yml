@@ -24,6 +24,13 @@ jobs:
         docker --version
         docker-compose --version
 
+    # Genereate dotnet certificate
+    - name: Generate dotnet certificate
+      shell: bash
+      run: |
+        sudo dotnet dev-certs https -ep ${HOME}/.aspnet/https/eshop.pfx
+        sudo dotnet dev-certs https --trust
+
     # Build eShop Solution
     - name: Build eShop Solution
       shell: bash
