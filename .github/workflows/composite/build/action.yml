@@ -25,18 +25,8 @@ runs:
   # Download nerdctl
   - name: Download nerdctl
         run: |
-          ARCH=$(uname -m)
-          if [ "$ARCH" = "x86_64" ]; then
-            ARCH="amd64"
-          elif [ "$ARCH" = "aarch64" ]; then
-            ARCH="arm64"
-          else
-            echo "Unsupported architecture: $ARCH"
-            exit 1
-          fi
-          VERSION=$(curl -s https://api.github.com/repos/containerd/nerdctl/releases/latest | grep tag_name | cut -d '"' -f 4)
-          wget https://github.com/containerd/nerdctl/releases/download/${VERSION}/nerdctl-${VERSION}-linux-${ARCH}.tar.gz
-          tar -xvf nerdctl-${VERSION}-linux-${ARCH}.tar.gz
+          wget https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-2.0.3-linux-arm64.tar.gz
+          tar -xvf nerdctl-2.0.3-linux-arm64.tar.gz
           sudo mv nerdctl /usr/local/bin/
 
   # Verify nerdctl installation
