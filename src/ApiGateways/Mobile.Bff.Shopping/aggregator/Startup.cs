@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-
-namespace Microsoft.eShopOnContainers.Mobile.Shopping.HttpAggregator;
+﻿namespace Microsoft.eShopOnContainers.Mobile.Shopping.HttpAggregator;
 
 public class Startup
 {
@@ -48,7 +45,7 @@ public class Startup
 
         app.UseSwagger().UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", "Purchase BFF V1");
+            c.SwaggerEndpoint($"{(!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty)}/swagger/v1/swagger.json", "Purchase BFF V1");
 
             c.OAuthClientId("mobileshoppingaggswaggerui");
             c.OAuthClientSecret(string.Empty);
