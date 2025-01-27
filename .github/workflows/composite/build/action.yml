@@ -14,6 +14,7 @@ runs:
   steps:
   # Install prerequisites
   - name: Install containerd
+    shell: bash
     run: |
       sudo apt-get update
       sudo apt-get install -y containerd
@@ -23,6 +24,7 @@ runs:
 
   # Download nerdctl
   - name: Download nerdctl
+    shell: bash
     run: |
       VERSION=$(curl -s https://api.github.com/repos/containerd/nerdctl/releases/latest | grep tag_name | cut -d '"' -f 4)
       wget https://github.com/containerd/nerdctl/releases/download/${VERSION}/nerdctl-${VERSION}-linux-amd64.tar.gz
@@ -31,6 +33,7 @@ runs:
 
   # Verify nerdctl installation
   - name: Verify nerdctl
+    shell: bash
     run: |
       nerdctl --version
   # - name: Compose build ${{ inputs.service }}
