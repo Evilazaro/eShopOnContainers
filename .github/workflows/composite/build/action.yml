@@ -17,12 +17,6 @@ runs:
     run: | 
       sudo apt-get update && \
       sudo apt-get upgrade -y 
-  - name: Install and Start Docker
-    shell: bash
-    run: |
-      sudo apt-get install -y docker.io && \
-      sudo systemctl start docker && \
-      sudo systemctl enable docker
   - name: Compose build ${{ inputs.service }}
     shell: bash
     run: sudo -E docker-compose build ${{ inputs.service }}
