@@ -1,4 +1,4 @@
-name: webhooks-client
+name: webhooks-client CI
 
 on:
   workflow_dispatch:
@@ -11,55 +11,46 @@ on:
       - 'refactor/**' # Branches containing refactor/ in the name
       - 'test/**' # Branches containing test/ in the name
       - 'techdebt/**' # Branches containing techdebt/ in the name
-      - main
-
     paths:
-    - src/BuildingBlocks/**
-    - src/Web/WebhookClient/**
-    - .github/workflows/webhooks-client.yml
-  
+      - src/BuildingBlocks/**
+      - src/Web/WebhookClient/**
+      - .github/workflows/webhooks-client.yml
+
   pull_request: # Trigger the workflow on pull requests
     branches:
-      - 'feature/**' # Branches containing feature/ in the name
-      - 'bugfix/**' # Branches containing bugfix/ in the name
-      - 'hotfix/**' # Branches containing hotfix/ in the name
-      - 'release/**' # Branches containing release/ in the name
-      - 'refactor/**' # Branches containing refactor/ in the name
-      - 'test/**' # Branches containing test/ in the name
-      - 'techdebt/**' # Branches containing techdebt/ in the name
-
+      - main
     paths:
-    - src/BuildingBlocks/**
-    - src/Web/WebhookClient/**
-    - .github/workflows/webhooks-client.yml
+      - src/BuildingBlocks/**
+      - src/Web/WebhookClient/**
+      - .github/workflows/webhooks-client.yml
+
 env:
   SERVICE: webhooks-client
   IMAGE: webhooks.client
 
 jobs:
-
   BuildContainersForPR_Linux:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
+    # if: ${{ github.event_name == 'pull_request' }}
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - uses: ./.github/workflows/composite/build
-      with:
-        service: ${{ env.SERVICE }}
-        # registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ./.github/workflows/composite/build
+        with:
+          service: ${{ env.SERVICE }}
+          # registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
 
-  BuildLinux:
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'pull_request' }}
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - uses: ./.github/workflows/composite/build-push
-      with:
-        service: ${{ env.SERVICE }}
-        registry_host: ${{ secrets.REGISTRY_HOST }}
-        # registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
-        image_name: ${{ env.IMAGE }}
-        registry_username: ${{ secrets.USERNAME }}
-        registry_password: ${{ secrets.PASSWORD }}
+  # BuildLinux:
+  #   runs-on: ubuntu-latest
+  #   if: ${{ github.event_name != 'pull_request' }}
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v4
+  #   - uses: ./.github/workflows/composite/build-push
+  #     with:
+  #       service: ${{ env.SERVICE }}
+  #       registry_host: ${{ secrets.REGISTRY_HOST }}
+  #       # registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
+  #       image_name: ${{ env.IMAGE }}
+  #       registry_username: ${{ secrets.USERNAME }}
+  #       registry_password: ${{ secrets.PASSWORD }}
