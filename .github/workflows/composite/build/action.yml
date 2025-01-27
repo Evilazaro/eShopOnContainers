@@ -18,11 +18,10 @@ runs:
       sudo apt-get update && \
       sudo curl -L -o nerdctl.tar.gz "https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-full-2.0.3-linux-arm64.tar.gz" && \
       file nerdctl.tar.gz && \
-      sudo chmod +x /usr/local/bin && \
-      sudo tar -xzf nerdctl.tar.gz -C /usr/local/bin && \
-      # sudo chmod +x /usr/local/bin/nerdctl && \
-      ls /usr/local/bin/nerdctl
-      # nerdctl --version
+      sudo tar -xzf nerdctl.tar.gz && \
+      sudo chmod +x /nerdctl && \
+      ls && \
+      nerdctl --version
   # - name: Compose build ${{ inputs.service }}
   #   shell: bash
   #   run: sudo -E nerdctl compose build ${{ inputs.service }}
