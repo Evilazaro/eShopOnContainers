@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'feature/**' # Branches containing feature/ in the name
-      - 'bugfix/**' # Branches containing bugfix/ in the name
-      - 'hotfix/**' # Branches containing hotfix/ in the name
-      - 'release/**' # Branches containing release/ in the name
-      - 'refactor/**' # Branches containing refactor/ in the name
-      - 'test/**' # Branches containing test/ in the name
-      - 'techdebt/**' # Branches containing techdebt/ in the name
+      - 'feature/ordering-signalrhub/**' # Branches containing feature/ in the name
+      - 'bugfix/ordering-signalrhub/**' # Branches containing bugfix/ in the name
+      - 'hotfix/ordering-signalrhub/**' # Branches containing hotfix/ in the name
+      - 'release/ordering-signalrhub/**' # Branches containing release/ in the name
+      - 'refactor/ordering-signalrhub/**' # Branches containing refactor/ in the name
+      - 'test/ordering-signalrhub/**' # Branches containing test/ in the name
+      - 'techdebt/ordering-signalrhub/**' # Branches containing techdebt/ in the name
     paths:
       - src/BuildingBlocks/**
       - src/Services/Ordering/**

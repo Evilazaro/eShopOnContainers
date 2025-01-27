@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'feature/**' # Branches containing feature/ in the name
-      - 'bugfix/**' # Branches containing bugfix/ in the name
-      - 'hotfix/**' # Branches containing hotfix/ in the name
-      - 'release/**' # Branches containing release/ in the name
-      - 'refactor/**' # Branches containing refactor/ in the name
-      - 'test/**' # Branches containing test/ in the name
-      - 'techdebt/**' # Branches containing techdebt/ in the name
+      - 'feature/webhooks-client/**' # Branches containing feature/ in the name
+      - 'bugfix/webhooks-client/**' # Branches containing bugfix/ in the name
+      - 'hotfix/webhooks-client/**' # Branches containing hotfix/ in the name
+      - 'release/webhooks-client/**' # Branches containing release/ in the name
+      - 'refactor/webhooks-client/**' # Branches containing refactor/ in the name
+      - 'test/webhooks-client/**' # Branches containing test/ in the name
+      - 'techdebt/webhooks-client/**' # Branches containing techdebt/ in the name
     paths:
       - src/BuildingBlocks/**
       - src/Web/WebhookClient/**

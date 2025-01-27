@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'feature/**' # Branches containing feature/ in the name
-      - 'bugfix/**' # Branches containing bugfix/ in the name
-      - 'hotfix/**' # Branches containing hotfix/ in the name
-      - 'release/**' # Branches containing release/ in the name
-      - 'refactor/**' # Branches containing refactor/ in the name
-      - 'test/**' # Branches containing test/ in the name
-      - 'techdebt/**' # Branches containing techdebt/ in the name
+      - 'feature/webmvc/**' # Branches containing feature/ in the name
+      - 'bugfix/webmvc/**' # Branches containing bugfix/ in the name
+      - 'hotfix/webmvc/**' # Branches containing hotfix/ in the name
+      - 'release/webmvc/**' # Branches containing release/ in the name
+      - 'refactor/webmvc/**' # Branches containing refactor/ in the name
+      - 'test/webmvc/**' # Branches containing test/ in the name
+      - 'techdebt/webmvc/**' # Branches containing techdebt/ in the name
     paths:
       - src/BuildingBlocks/**
       - src/Web/WebMVC/**

@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'feature/**' # Branches containing feature/ in the name
-      - 'bugfix/**' # Branches containing bugfix/ in the name
-      - 'hotfix/**' # Branches containing hotfix/ in the name
-      - 'release/**' # Branches containing release/ in the name
-      - 'refactor/**' # Branches containing refactor/ in the name
-      - 'test/**' # Branches containing test/ in the name
-      - 'techdebt/**' # Branches containing techdebt/ in the name
+      - 'feature/webshoppingagg/**' # Branches containing feature/ in the name
+      - 'bugfix/webshoppingagg/**' # Branches containing bugfix/ in the name
+      - 'hotfix/webshoppingagg/**' # Branches containing hotfix/ in the name
+      - 'release/webshoppingagg/**' # Branches containing release/ in the name
+      - 'refactor/webshoppingagg/**' # Branches containing refactor/ in the name
+      - 'test/webshoppingagg/**' # Branches containing test/ in the name
+      - 'techdebt/webshoppingagg/**' # Branches containing techdebt/ in the name
     paths:
       - src/ApiGateways/Web.Bff.Shopping/aggregator/**
       - .github/workflows/webshoppingagg.yml
