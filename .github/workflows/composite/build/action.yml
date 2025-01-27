@@ -23,8 +23,6 @@ runs:
       sudo apt-get install -y docker.io && \
       sudo systemctl start docker && \
       sudo systemctl enable docker
-  - name: Checkout code
-    uses: actions/checkout@v4
   - name: Compose build ${{ inputs.service }}
     shell: bash
     run: sudo -E docker-compose build ${{ inputs.service }}
