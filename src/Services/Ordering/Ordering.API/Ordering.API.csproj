@@ -53,8 +53,8 @@
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0-beta1" />
     <PackageReference Include="Microsoft.ApplicationInsights.DependencyCollector" Version="2.22.0-beta1" />
     <PackageReference Include="Microsoft.ApplicationInsights.Kubernetes" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.20" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.HealthChecks" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.HealthChecks" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="7.0.0" />
@@ -67,7 +67,7 @@
 	<PackageReference Include="Serilog.Sinks.Http" Version="8.0.0" />
 	<PackageReference Include="Serilog.Sinks.Seq" Version="5.2.3-dev-00260" />
 	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-	<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.4.0" />
+	<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="7.1.0" />
   </ItemGroup>
 
 
