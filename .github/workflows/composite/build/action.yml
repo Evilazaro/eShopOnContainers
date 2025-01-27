@@ -16,7 +16,8 @@ runs:
     shell: bash
     run: | 
       sudo apt-get update && \
-      sudo apt-get upgrade -y 
+      curl -LO "https://github.com/containerd/nerdctl/releases/latest/download/nerdctl-$(uname -s)-$(uname -m).tar.gz" && \
+      tar Cxzvf /usr/local/bin nerdctl-*.tar.gz
   - name: Compose build ${{ inputs.service }}
     shell: bash
     run: sudo -E nerdctl compose build ${{ inputs.service }}
