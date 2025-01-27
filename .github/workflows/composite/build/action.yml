@@ -24,10 +24,11 @@ runs:
 
   # Download nerdctl
   - name: Download nerdctl
-        run: |
-          wget https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-2.0.3-linux-arm64.tar.gz
-          tar -xvf nerdctl-2.0.3-linux-arm64.tar.gz
-          sudo mv nerdctl /usr/local/bin/
+    shell: bash 
+    run: |
+      wget https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-2.0.3-linux-arm64.tar.gz
+      tar -xvf nerdctl-2.0.3-linux-arm64.tar.gz
+      sudo mv nerdctl /usr/local/bin/
 
   # Verify nerdctl installation
   - name: Verify nerdctl
