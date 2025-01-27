@@ -1,4 +1,8 @@
-﻿namespace Microsoft.eShopOnContainers.Mobile.Shopping.HttpAggregator;
+﻿using CatalogApi;
+using GrpcBasket;
+using GrpcOrdering;
+
+namespace Microsoft.eShopOnContainers.Mobile.Shopping.HttpAggregator;
 
 public class Startup
 {
