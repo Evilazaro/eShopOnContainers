@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'feature/**' # Branches containing feature/ in the name
-      - 'bugfix/**' # Branches containing bugfix/ in the name
-      - 'hotfix/**' # Branches containing hotfix/ in the name
-      - 'release/**' # Branches containing release/ in the name
-      - 'refactor/**' # Branches containing refactor/ in the name
-      - 'test/**' # Branches containing test/ in the name
-      - 'techdebt/**' # Branches containing techdebt/ in the name
+      - 'feature/identity-api/**' # Branches containing feature/ in the name
+      - 'bugfix/identity-api/**' # Branches containing bugfix/ in the name
+      - 'hotfix/identity-api/**' # Branches containing hotfix/ in the name
+      - 'release/identity-api/**' # Branches containing release/ in the name
+      - 'refactor/identity-api/**' # Branches containing refactor/ in the name
+      - 'test/identity-api/**' # Branches containing test/ in the name
+      - 'techdebt/identity-api/**' # Branches containing techdebt/ in the name
     paths:
       - src/BuildingBlocks/**
       - src/Services/Identity/**
@@ -29,7 +29,7 @@ env:
   IMAGE: identity.api
 
 jobs:
-  BuildContainersForPR_Linux:
+  identity-api-ci:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     steps:

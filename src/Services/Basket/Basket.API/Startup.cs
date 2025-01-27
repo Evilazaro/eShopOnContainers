@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-
 namespace Microsoft.eShopOnContainers.Services.Basket.API;
 public class Startup
 {
@@ -31,7 +28,7 @@ public class Startup
             .AddJsonOptions(options => options.JsonSerializerOptions.WriteIndented = true);
 
         services.AddSwaggerGen(options =>
-        {            
+        {
             options.SwaggerDoc("v1", new OpenApiInfo
             {
                 Title = "eShopOnContainers - Basket HTTP API",
@@ -160,7 +157,7 @@ public class Startup
         app.UseSwagger()
             .UseSwaggerUI(setup =>
             {
-                setup.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", "Basket.API V1");
+                setup.SwaggerEndpoint($"{(!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty)}/swagger/v1/swagger.json", "Basket.API V1");
                 setup.OAuthClientId("basketswaggerui");
                 setup.OAuthAppName("Basket Swagger UI");
             });
