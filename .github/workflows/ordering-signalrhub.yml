@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
       - 'feature/**' # Branches containing feature/ in the name
       - 'bugfix/**' # Branches containing bugfix/ in the name
       - 'hotfix/**' # Branches containing hotfix/ in the name
