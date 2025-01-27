@@ -1,4 +1,4 @@
-name: webshoppingagg
+name: webshoppingagg CI
 
 on:
   workflow_dispatch:

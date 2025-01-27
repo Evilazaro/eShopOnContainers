@@ -1,4 +1,4 @@
-name: ordering-signalrhub
+name: ordering-signalrhub CI
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: webstatus
+name: webstatus CI
 
 on:
   workflow_dispatch:

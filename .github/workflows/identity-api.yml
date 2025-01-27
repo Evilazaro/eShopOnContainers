@@ -1,4 +1,4 @@
-name: identity-api
+name: identity-api CI
 
 on:
   workflow_dispatch:

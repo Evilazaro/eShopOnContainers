@@ -1,4 +1,4 @@
-name: webhooks-client
+name: webhooks-client CI
 
 on:
   workflow_dispatch:
