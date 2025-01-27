@@ -5,9 +5,9 @@ inputs:
   service:
     description: "Service to build"
     required: true
-  registry_endpoint:
-    description: "Image registry repo e.g. myacr.azureacr.io/eshop"
-    required: true
+  # registry_endpoint:
+  #   description: "Image registry repo e.g. myacr.azureacr.io/eshop"
+  #   required: true
 
 runs:
   using: "composite"
@@ -18,4 +18,4 @@ runs:
     working-directory: ./src
     env:
       TAG: ${{ env.BRANCH }}
-      REGISTRY: ${{ inputs.registry_endpoint }}
+      # REGISTRY: ${{ inputs.registry_endpoint }}
