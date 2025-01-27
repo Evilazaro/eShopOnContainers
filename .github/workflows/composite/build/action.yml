@@ -35,10 +35,12 @@ runs:
     shell: bash
     run: |
       nerdctl --version
-  # - name: Compose build ${{ inputs.service }}
-  #   shell: bash
-  #   run: sudo -E nerdctl compose build ${{ inputs.service }}
-  #   working-directory: ./src
-  #   env:
-  #     TAG: ${{ env.BRANCH }}
-  #     # REGISTRY: ${{ inputs.registry_endpoint }}
+  
+  # Builds the docker image for the service specified
+  - name: Compose build ${{ inputs.service }}
+    shell: bash
+    run: sudo -E nerdctl build ${{ inputs.service }}
+    working-directory: ./src
+    env:
+      TAG: ${{ env.BRANCH }}
+      # REGISTRY: ${{ inputs.registry_endpoint }}
