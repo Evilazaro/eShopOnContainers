@@ -12,6 +12,8 @@ inputs:
 runs:
   using: "composite"
   steps:
+  - name: Checkout code
+    uses: actions/checkout@v4
   - name: Compose build ${{ inputs.service }}
     shell: bash
     run: sudo -E docker-compose build ${{ inputs.service }}
