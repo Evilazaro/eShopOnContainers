@@ -28,6 +28,7 @@ jobs:
     - name: Generate dotnet certificate
       shell: bash
       run: |
+        sdo mkdir -p ${HOME}/.aspnet/https
         sudo dotnet dev-certs https -ep ${HOME}/.aspnet/https/eshop.pfx
         sudo dotnet dev-certs https --trust
 
