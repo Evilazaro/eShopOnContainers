@@ -16,11 +16,7 @@ runs:
     shell: bash
     run: | 
       sudo apt-get update && \
-      sudo curl -L -o nerdctl.tar.gz "https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-full-2.0.3-linux-arm64.tar.gz" && \
-      file nerdctl.tar.gz && \
-      sudo tar -xzf nerdctl.tar.gz && \
-      sudo chmod +x /nerdctl && \
-      ls && \
+      sudo apt-get install -y nerdctl && \
       nerdctl --version
   # - name: Compose build ${{ inputs.service }}
   #   shell: bash
