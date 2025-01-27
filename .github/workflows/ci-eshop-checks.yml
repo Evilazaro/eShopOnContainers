@@ -27,9 +27,9 @@ jobs:
     # Genereate dotnet certificate
     - name: Generate dotnet certificate
       shell: bash
+      working-directory: ./src/Services/Catalog/Catalog.API
       run: |
-        sudo mkdir -p ${HOME}/.aspnet/https
-        sudo dotnet dev-certs https -ep ${HOME}/.aspnet/https/eshop.pfx
+        sudo dotnet dev-certs https -ep eshop.pfx
         sudo dotnet dev-certs https --trust
 
     # Build eShop Solution
