@@ -20,7 +20,8 @@ runs:
       file nerdctl.tar.gz && \
       tar -xzf nerdctl.tar.gz -C /usr/local/bin && \
       sudo chmod +x /usr/local/bin/nerdctl && \
-      nerdctl --version
+      ls -l /usr/local/bin/
+      # nerdctl --version
   # - name: Compose build ${{ inputs.service }}
   #   shell: bash
   #   run: sudo -E nerdctl compose build ${{ inputs.service }}
