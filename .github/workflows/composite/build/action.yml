@@ -16,8 +16,8 @@ runs:
     shell: bash
     run: | 
       sudo apt-get update && \
-      sudo curl -LO "https://github.com/containerd/nerdctl/releases/latest/download/nerdctl-$(uname -s)-$(uname -m).tar.gz" && \
-      sudo tar Cxzvf /usr/local/bin nerdctl-*.tar.gz
+      sudo curl -L -o nerdctl.tar.gz "https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-full-2.0.3-linux-arm64.tar.gz"
+      sudo tar Cxzvf /usr/local/bin nerdctl-full-2.0.3-linux-arm64.tar.gz
   - name: Compose build ${{ inputs.service }}
     shell: bash
     run: sudo -E nerdctl compose build ${{ inputs.service }}
