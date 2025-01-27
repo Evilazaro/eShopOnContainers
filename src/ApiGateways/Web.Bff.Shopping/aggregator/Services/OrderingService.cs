@@ -1,4 +1,6 @@
-﻿namespace Microsoft.eShopOnContainers.Web.Shopping.HttpAggregator.Services;
+﻿using GrpcOrdering;
+
+namespace Microsoft.eShopOnContainers.Web.Shopping.HttpAggregator.Services;
 
 public class OrderingService : IOrderingService
 {

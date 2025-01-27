@@ -1,4 +1,6 @@
-﻿namespace Microsoft.eShopOnContainers.Web.Shopping.HttpAggregator.Services;
+﻿using GrpcBasket;
+
+namespace Microsoft.eShopOnContainers.Web.Shopping.HttpAggregator.Services;
 
 public class BasketService : IBasketService
 {
@@ -10,7 +12,7 @@ public class BasketService : IBasketService
         _basketClient = basketClient;
         _logger = logger;
     }
-    
+
     public async Task<BasketData> GetByIdAsync(string id)
     {
         _logger.LogDebug("grpc client created, request = {@id}", id);

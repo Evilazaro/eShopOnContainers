@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'feature/**' # Branches containing feature/ in the name
-      - 'bugfix/**' # Branches containing bugfix/ in the name
-      - 'hotfix/**' # Branches containing hotfix/ in the name
-      - 'release/**' # Branches containing release/ in the name
-      - 'refactor/**' # Branches containing refactor/ in the name
-      - 'test/**' # Branches containing test/ in the name
-      - 'techdebt/**' # Branches containing techdebt/ in the name
+      - 'feature/ordering-backgroundtasks/**' # Branches containing feature/ in the name
+      - 'bugfix/ordering-backgroundtasks/**' # Branches containing bugfix/ in the name
+      - 'hotfix/ordering-backgroundtasks/**' # Branches containing hotfix/ in the name
+      - 'release/ordering-backgroundtasks/**' # Branches containing release/ in the name
+      - 'refactor/ordering-backgroundtasks/**' # Branches containing refactor/ in the name
+      - 'test/ordering-backgroundtasks/**' # Branches containing test/ in the name
+      - 'techdebt/ordering-backgroundtasks/**' # Branches containing techdebt/ in the name
     paths:
       - src/BuildingBlocks/**
       - src/Services/Ordering/**
@@ -29,7 +29,7 @@ env:
   IMAGE: ordering.backgroundtasks
 
 jobs:
-  BuildContainersForPR_Linux:
+  ordering-backgroundtasks-ci:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:

@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'feature/**' # Branches containing feature/ in the name
-      - 'bugfix/**' # Branches containing bugfix/ in the name
-      - 'hotfix/**' # Branches containing hotfix/ in the name
-      - 'release/**' # Branches containing release/ in the name
-      - 'refactor/**' # Branches containing refactor/ in the name
-      - 'test/**' # Branches containing test/ in the name
-      - 'techdebt/**' # Branches containing techdebt/ in the name
+      - 'feature/mobileshoppingagg/**' # Branches containing feature/ in the name
+      - 'bugfix/mobileshoppingagg/**' # Branches containing bugfix/ in the name
+      - 'hotfix/mobileshoppingagg/**' # Branches containing hotfix/ in the name
+      - 'release/mobileshoppingagg/**' # Branches containing release/ in the name
+      - 'refactor/mobileshoppingagg/**' # Branches containing refactor/ in the name
+      - 'test/mobileshoppingagg/**' # Branches containing test/ in the name
+      - 'techdebt/mobileshoppingagg/**' # Branches containing techdebt/ in the name
     paths:
       - src/ApiGateways/Mobile.Bff.Shopping/aggregator/**
       - .github/workflows/mobileshoppingagg.yml
@@ -27,7 +27,7 @@ env:
   IMAGE: mobileshoppingagg
 
 jobs:
-  BuildContainersForPR_Linux:
+  mobileshoppingagg-ci:
     runs-on: ubuntu-latest
     # if: ${{ github.event_name == 'pull_request' }}
     steps:
