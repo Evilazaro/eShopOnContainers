@@ -5,14 +5,6 @@ on:
   push:
     branches:
       - main
-
-    paths:
-    - src/BuildingBlocks/**
-    - src/Services/Catalog/**
-    - .github/workflows/catalog-api.yml
-  
-  pull_request: # Trigger the workflow on pull requests
-    branches:
       - 'feature/**' # Branches containing feature/ in the name
       - 'bugfix/**' # Branches containing bugfix/ in the name
       - 'hotfix/**' # Branches containing hotfix/ in the name
@@ -20,11 +12,20 @@ on:
       - 'refactor/**' # Branches containing refactor/ in the name
       - 'test/**' # Branches containing test/ in the name
       - 'techdebt/**' # Branches containing techdebt/ in the name
-    
+
     paths:
-    - src/BuildingBlocks/**
-    - src/Services/Catalog/**
-    - .github/workflows/catalog-api.yml
+      - src/BuildingBlocks/**
+      - src/Services/Catalog/**
+      - .github/workflows/catalog-api.yml
+  
+  pull_request: # Trigger the workflow on pull requests
+    branches:
+      - main
+    paths:
+      - src/BuildingBlocks/**
+      - src/Services/Catalog/**
+      - .github/workflows/catalog-api.yml
+
 env:
   SERVICE: catalog-api
   IMAGE: catalog.api
