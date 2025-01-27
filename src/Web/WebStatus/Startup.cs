@@ -13,7 +13,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         RegisterAppInsights(services);
-        
+
         services.AddMvc();
 
         services.AddOptions();
