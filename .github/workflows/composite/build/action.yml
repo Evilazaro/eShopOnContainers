@@ -12,15 +12,15 @@ inputs:
 runs:
   using: "composite"
   steps:
-  # Update Packages
-  - name: Update Packages
+  # Install Docker Compose
+  - name: Install Docker Compose
     shell: bash
     run: |
       sudo apt-get update
       sudo apt-get install -y docker-compose
-      echo "Packages updated"
-      echo "Verifies docker is installed"
+      echo "Docker Composed installed"
       docker --version
+      docker-compose --version
   
   # Builds the docker image for the service specified
   - name: Compose build ${{ inputs.service }}
@@ -33,3 +33,9 @@ runs:
     env:
       TAG: ${{ env.BRANCH }}
       # REGISTRY: ${{ inputs.registry_endpoint }}
+
+  # List the images
+  - name: List images
+    shell: bash
+    run: |
+      sudo docker images
