@@ -1,3 +1,4 @@
+# Run Dependabot on every push to the default branch
 version: 2
 registries:
   public-nuget:
