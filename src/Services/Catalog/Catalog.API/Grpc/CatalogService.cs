@@ -1,5 +1,8 @@
 ﻿namespace Microsoft.eShopOnContainers.Services.Catalog.API.Grpc;
+
+using CatalogApi;
 using Microsoft.Extensions.Logging;
+using static CatalogApi.Catalog;
 
 public class CatalogService : CatalogBase
 {
