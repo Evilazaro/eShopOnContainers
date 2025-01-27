@@ -50,7 +50,7 @@ jobs:
     - uses: ./.github/workflows/composite/build-test
       with:
         service: ${{ env.SERVICE }}
-        registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
+        # registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
         dotnet_version: ${{ env.DOTNET_VERSION }}
         project_path: ${{ env.PROJECT_PATH }}
         tests_path: ${{ env.TESTS_PATH }}
@@ -65,7 +65,7 @@ jobs:
       with:
         service: ${{ env.SERVICE }}
         registry_host: ${{ secrets.REGISTRY_HOST }}
-        registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
+        # registry_endpoint: ${{ secrets.REGISTRY_ENDPOINT }}
         image_name: ${{ env.IMAGE }}
         registry_username: ${{ secrets.USERNAME }}
         registry_password: ${{ secrets.PASSWORD }}
