@@ -5,17 +5,37 @@ inputs:
   service:
     description: "Service to build"
     required: true
-  registry_endpoint:
-    description: "Image registry repo e.g. myacr.azureacr.io/eshop"
-    required: true
+  # registry_endpoint:
+  #   description: "Image registry repo e.g. myacr.azureacr.io/eshop"
+  #   required: true
 
 runs:
   using: "composite"
   steps:
+  # Install Docker Compose
+  - name: Install Docker Compose
+    shell: bash
+    run: |
+      sudo apt-get update
+      sudo apt-get install -y docker-compose
+      echo "Docker Composed installed"
+      docker --version
+      docker-compose --version
+  
+  # Builds the docker image for the service specified
   - name: Compose build ${{ inputs.service }}
     shell: bash
-    run: sudo -E docker-compose build ${{ inputs.service }}
+    run: |
+      echo "Building ${{ inputs.service }} image"
+      sudo docker-compose build ${{ inputs.service }}
+      echo "Built ${{ inputs.service }} image"
     working-directory: ./src
     env:
       TAG: ${{ env.BRANCH }}
-      REGISTRY: ${{ inputs.registry_endpoint }}
+      # REGISTRY: ${{ inputs.registry_endpoint }}
+
+  # List the images
+  - name: List images
+    shell: bash
+    run: |
+      sudo docker images
