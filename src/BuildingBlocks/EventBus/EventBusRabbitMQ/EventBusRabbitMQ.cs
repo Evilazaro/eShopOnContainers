@@ -1,4 +1,9 @@
-﻿namespace Microsoft.eShopOnContainers.BuildingBlocks.EventBusRabbitMQ;
+﻿using RabbitMQ.Client.Events;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Exceptions;
+using RabbitMQ.Client.Logging;
+
+namespace Microsoft.eShopOnContainers.BuildingBlocks.EventBusRabbitMQ;
 
 public class EventBusRabbitMQ : IEventBus, IDisposable
 {
@@ -11,7 +16,7 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
     private readonly ILifetimeScope _autofac;
     private readonly int _retryCount;
 
-    private IModel _consumerChannel;
+    private RabbitMQ.Client IModel _consumerChannel;
     private string _queueName;
 
     public EventBusRabbitMQ(IRabbitMQPersistentConnection persistentConnection, ILogger<EventBusRabbitMQ> logger,
