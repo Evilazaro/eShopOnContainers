@@ -12,9 +12,9 @@
 	  <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="6.0.2" />
 	  <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />
 	  <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
-	  <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0-beta1" />
-	  <PackageReference Include="Microsoft.ApplicationInsights.DependencyCollector" Version="2.22.0-beta1" />
-	  <PackageReference Include="Microsoft.ApplicationInsights.Kubernetes" Version="3.1.0" />
+	  <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
+	  <PackageReference Include="Microsoft.ApplicationInsights.DependencyCollector" Version="2.22.0" />
+	  <PackageReference Include="Microsoft.ApplicationInsights.Kubernetes" Version="7.0.1" />
 	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.1" />
 	  <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.1" />
 	  <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="9.0.1" />
@@ -22,7 +22,7 @@
 	  <PackageReference Include="Microsoft.AspNetCore.HealthChecks" Version="1.0.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.SignalR.StackExchangeRedis" Version="9.0.1" />
 	  <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="9.0.1" />
-	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
 	  <PackageReference Include="Serilog.AspNetCore" Version="6.1.0-dev-00289" />
 	  <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.1-dev-00787" />
 	  <PackageReference Include="Serilog.Settings.Configuration" Version="9.0.0" />
